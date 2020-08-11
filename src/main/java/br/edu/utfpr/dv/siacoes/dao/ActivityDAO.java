@@ -13,6 +13,15 @@ import br.edu.utfpr.dv.siacoes.model.Activity;
 
 public class ActivityDAO {
 	
+	public void closeConection(Connection conn, PreparedStatement stmt, ResultSet rs){
+	    if((rs != null) && !rs.isClosed())
+			rs.close();
+		if((stmt != null) && !stmt.isClosed())
+			stmt.close();
+		if((conn != null) && !conn.isClosed())
+			conn.close();
+	}
+	
 	public boolean needsFillAmount(int idActivity) throws SQLException{
 		Connection conn = null;
 		Statement stmt = null;
@@ -32,12 +41,7 @@ public class ActivityDAO {
 				return false;	
 			}
 		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			closeConection(conn, stmt, rs);
 		}
 	}
 	
@@ -63,12 +67,7 @@ public class ActivityDAO {
 			
 			return list;
 		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			closeConection(conn, stmt, rs);
 		}
 	}
 	
@@ -97,12 +96,7 @@ public class ActivityDAO {
 			
 			return list;
 		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			closeConection(conn, stmt, rs);
 		}
 	}
 	
@@ -132,12 +126,7 @@ public class ActivityDAO {
 			
 			return list;
 		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			closeConection(conn, stmt, rs);
 		}
 	}
 	
@@ -164,12 +153,7 @@ public class ActivityDAO {
 				return null;
 			}
 		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			closeConection(conn, stmt, rs);
 		}
 	}
 	
@@ -224,12 +208,7 @@ public class ActivityDAO {
 			
 			return activity.getIdActivity();
 		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			closeConection(conn, stmt, rs);
 		}
 	}
 	
@@ -301,12 +280,7 @@ public class ActivityDAO {
 				}
 			}
 		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			closeConection(conn, stmt, rs);
 		}
 	}
 	
@@ -359,12 +333,7 @@ public class ActivityDAO {
 				}
 			}
 		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			closeConection(conn, stmt, rs);
 		}
 	}
 
