@@ -11,8 +11,15 @@ import java.util.List;
 import br.edu.utfpr.dv.siacoes.log.UpdateEvent;
 import br.edu.utfpr.dv.siacoes.model.ActivityUnit;
 
-public class ActivityUnitDAO {
-	
+public class ActivityUnitDAO extends TemplateMethod {
+
+
+	@Override
+	void actions() {
+		super.actions();
+	}
+
+	@Override
 	public List<ActivityUnit> listAll() throws SQLException{
 		Connection conn = null;
 		Statement stmt = null;
@@ -40,7 +47,8 @@ public class ActivityUnitDAO {
 				conn.close();
 		}
 	}
-	
+
+	@Override
 	public ActivityUnit findById(int id) throws SQLException{
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -68,7 +76,8 @@ public class ActivityUnitDAO {
 				conn.close();
 		}
 	}
-	
+
+	@Override
 	public int save(int idUser, ActivityUnit unit) throws SQLException{
 		boolean insert = (unit.getIdActivityUnit() == 0);
 		Connection conn = null;
@@ -116,7 +125,8 @@ public class ActivityUnitDAO {
 				conn.close();
 		}
 	}
-	
+
+	@Override
 	private ActivityUnit loadObject(ResultSet rs) throws SQLException{
 		ActivityUnit unit = new ActivityUnit();
 		
