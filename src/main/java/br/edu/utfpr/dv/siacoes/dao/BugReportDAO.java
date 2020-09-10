@@ -14,17 +14,14 @@ import br.edu.utfpr.dv.siacoes.model.BugReport.BugStatus;
 import br.edu.utfpr.dv.siacoes.model.Module;
 import br.edu.utfpr.dv.siacoes.model.User;
 
-public class BugReportDAO {
-	
-	public void closeConection(Connection conn, PreparedStatement stmt, ResultSet rs){
-	    if((rs != null) && !rs.isClosed())
-			rs.close();
-		if((stmt != null) && !stmt.isClosed())
-			stmt.close();
-		if((conn != null) && !conn.isClosed())
-			conn.close();
+public class BugReportDAO extends  TemplateMethod{
+
+	@Override
+	void actions() {
+		super.actions();
 	}
-	
+
+	@Override
 	public BugReport findById(int id) throws SQLException{
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -49,7 +46,8 @@ public class BugReportDAO {
 			closeConection(conn, stmt, rs);
 		}
 	}
-	
+
+	@Override
 	public List<BugReport> listAll() throws SQLException{
 		Connection conn = null;
 		Statement stmt = null;
@@ -73,7 +71,8 @@ public class BugReportDAO {
 			closeConection(conn, stmt, rs);
 		}
 	}
-	
+
+	@Override
 	public int save(BugReport bug) throws SQLException{
 		boolean insert = (bug.getIdBugReport() == 0);
 		Connection conn = null;
@@ -122,7 +121,8 @@ public class BugReportDAO {
 			closeConection(conn, stmt, rs);
 		}
 	}
-	
+
+	@Override
 	private BugReport loadObject(ResultSet rs) throws SQLException{
 		BugReport bug = new BugReport();
 		
