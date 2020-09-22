@@ -1,0 +1,30 @@
+*.class
+*.properties
+*.key
+*.jasper
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+/admin.txt
+/atividades_complementares.jpg
+/cidades.sql
+/estados.sql
+/estagio.jpg
+/Estagio.pdf
+/Novas Implementações.txt
+/tcc.jpg
+/target/
+https.txt
+https2.txt
+
+https renew\.txt
+
+src/main/java/br/edu/utfpr/dv/siacoes/sign/SignatureKey.java
